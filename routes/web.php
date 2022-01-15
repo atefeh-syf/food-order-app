@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FoodMenuController;
+use App\Http\Controllers\Admin\FoodController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +34,14 @@ Route::group(['prefix'  =>   'food_menus'], function() {
     Route::post('/update', [FoodMenuController::class, 'update'])->name('admin.foodmenus.update');
     Route::get('/{id}/delete', [FoodMenuController::class, 'delete'])->name('admin.foodmenus.delete');
 });
+
+Route::group(['prefix' => 'foods'], function () {
+    Route::get('/', [FoodController::class, 'index'])->name('admin.foods.index');
+    Route::get('/create', [FoodController::class, 'create'])->name('admin.foods.create');
+    Route::post('/store', [FoodController::class, 'store'])->name('admin.foods.store');
+    Route::get('/edit/{id}', [FoodController::class, 'edit'])->name('admin.foods.edit');
+    Route::post('/update', [FoodController::class, 'delete'])->name('admin.foods.update');
+
+    Route::post('images/upload', [FoodImageController::class, 'upload'])->name('admin.foods.images.upload');
+    Route::get('images/{id}/delete', [FoodImageController::class, 'delete'])->name('admin.foods.images.delete');
+ });

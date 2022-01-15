@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Contracts\FoodMenuContract;
+use App\Contracts\BaseContract;
 use App\Http\Controllers\BaseController;
 
 class FoodMenuController extends BaseController

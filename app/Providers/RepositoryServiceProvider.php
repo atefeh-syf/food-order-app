@@ -2,18 +2,18 @@
 namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 
-use App\Contracts\BaseContract;
-use App\Repositories\BaseRepository;
 use App\Contracts\FoodMenuContract;
 use App\Repositories\FoodmenuRepository;
+use App\Contracts\FoodContract;
+use App\Repositories\FoodRepository;
 
 
 
 class RepositoryServiceProvider extends ServiceProvider
 {
     protected $repositories = [
-        BaseContract::class => BaseRepository::class,
         FoodMenuContract::class => FoodmenuRepository::class,
+        FoodContract::class => FoodRepository::class,
     ];
     
     /**

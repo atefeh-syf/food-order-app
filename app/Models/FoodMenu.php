@@ -33,4 +33,13 @@ class FoodMenu extends Model
     {
         return $this->hasMany(FoodMenu::class, 'parent_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function foods()
+    {
+        return $this->belongsToMany(Product::class, 'food_food_menus', 'food_menu_id', 'food_id');
+    }
+
 }
