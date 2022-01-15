@@ -121,4 +121,27 @@ class FoodMenuRepository extends BaseRepository implements FoodMenuContract
         return $FoodMenu;
     }
 
+    public function treeList()
+    {
+        return FoodMenu::orderByRaw('-name ASC')
+            ->get()
+            ->nest()
+            ->setIndent('|–– ')
+            ->listsFlattened('name');
+    }
+
+
+    public function findFoodFoodsMenuById(int $id)
+    {
+        try {
+            return FoodMenu::with('foods')
+            ->where('id', $id)
+            ->first();
+
+        } catch (ModelNotFoundException $e) {
+
+            throw new ModelNotFoundException($e);
+        }
+    }
+
 }

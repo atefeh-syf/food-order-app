@@ -39,7 +39,7 @@ class FoodMenu extends Model
      */
     public function foods()
     {
-        return $this->belongsToMany(Product::class, 'food_food_menus', 'food_menu_id', 'food_id');
+        return $this->belongsToMany(Food::class, 'food_food_menus', 'food_menu_id', 'food_id');
     }
 
 }

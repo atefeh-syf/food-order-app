@@ -10,7 +10,7 @@ use TCG\Voyager\Models\Menu;
 use TCG\Voyager\Models\MenuItem;
 use TCG\Voyager\Models\Permission;
 
-class CategoriesTableSeeder extends Seeder
+class foodMenusTableSeeder extends Seeder
 {
     /**
      * Auto generated seed file.
@@ -20,13 +20,13 @@ class CategoriesTableSeeder extends Seeder
     public function run()
     {
         //Data Type
-        $dataType = $this->dataType('name', 'categories');
+        $dataType = $this->dataType('name', 'foodMenus');
         if (!$dataType->exists) {
             $dataType->fill([
-                'slug'                  => 'categories',
+                'slug'                  => 'foodMenus',
                 'display_name_singular' => __('voyager::seeders.data_types.category.singular'),
                 'display_name_plural'   => __('voyager::seeders.data_types.category.plural'),
-                'icon'                  => 'voyager-categories',
+                'icon'                  => 'voyager-foodMenus',
                 'model_name'            => 'TCG\\Voyager\\Models\\Category',
                 'controller'            => '',
                 'generate_permissions'  => 1,
@@ -34,7 +34,7 @@ class CategoriesTableSeeder extends Seeder
             ])->save();
         }
         //Data Rows
-        $categoryDataType = DataType::where('slug', 'categories')->firstOrFail();
+        $categoryDataType = DataType::where('slug', 'foodMenus')->firstOrFail();
         $dataRow = $this->dataRow($categoryDataType, 'id');
         if (!$dataRow->exists) {
             $dataRow->fill([
@@ -163,14 +163,14 @@ class CategoriesTableSeeder extends Seeder
         $menu = Menu::where('name', 'admin')->firstOrFail();
         $menuItem = MenuItem::firstOrNew([
             'menu_id' => $menu->id,
-            'title'   => __('voyager::seeders.menu_items.categories'),
+            'title'   => __('voyager::seeders.menu_items.foodMenus'),
             'url'     => '',
-            'route'   => 'voyager.categories.index',
+            'route'   => 'voyager.foodMenus.index',
         ]);
         if (!$menuItem->exists) {
             $menuItem->fill([
                 'target'     => '_self',
-                'icon_class' => 'voyager-categories',
+                'icon_class' => 'voyager-foodMenus',
                 'color'      => null,
                 'parent_id'  => null,
                 'order'      => 8,
@@ -178,7 +178,7 @@ class CategoriesTableSeeder extends Seeder
         }
 
         //Permissions
-        Permission::generateFor('categories');
+        Permission::generateFor('foodMenus');
 
         //Content
         $category = Category::firstOrNew([

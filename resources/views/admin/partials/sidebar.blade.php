@@ -26,9 +26,9 @@
             </a>
         </li>
         <li>
-            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.categories.index' ? 'active' : '' }}" href="{{ route('admin.categories.index') }}">
+            <a class="app-menu__item {{ Route::currentRouteName() == 'admin.foodMenus.index' ? 'active' : '' }}" href="{{ route('admin.foodMenus.index') }}">
                 <i class="app-menu__icon fa fa-tags"></i>
-                <span class="app-menu__label">Categories</span>
+                <span class="app-menu__label">foodMenus</span>
             </a>
         </li>
         <li>

@@ -19,29 +19,29 @@ class TranslationsTableSeeder extends Seeder
     public function run()
     {
         $this->dataTypesTranslations();
-        $this->categoriesTranslations();
+        $this->foodMenusTranslations();
         $this->pagesTranslations();
         $this->menusTranslations();
     }
 
     /**
-     * Auto generate Categories Translations.
+     * Auto generate foodMenus Translations.
      *
      * @return void
      */
-    private function categoriesTranslations()
+    private function foodMenusTranslations()
     {
-        // Adding translations for 'categories'
+        // Adding translations for 'foodMenus'
         //
         $cat = Category::where('slug', 'category-1')->firstOrFail();
         if ($cat->exists) {
-            $this->trans('pt', $this->arr(['categories', 'slug'], $cat->id), 'categoria-1');
-            $this->trans('pt', $this->arr(['categories', 'name'], $cat->id), 'Categoria 1');
+            $this->trans('pt', $this->arr(['foodMenus', 'slug'], $cat->id), 'categoria-1');
+            $this->trans('pt', $this->arr(['foodMenus', 'name'], $cat->id), 'Categoria 1');
         }
         $cat = Category::where('slug', 'category-2')->firstOrFail();
         if ($cat->exists) {
-            $this->trans('pt', $this->arr(['categories', 'slug'], $cat->id), 'categoria-2');
-            $this->trans('pt', $this->arr(['categories', 'name'], $cat->id), 'Categoria 2');
+            $this->trans('pt', $this->arr(['foodMenus', 'slug'], $cat->id), 'categoria-2');
+            $this->trans('pt', $this->arr(['foodMenus', 'name'], $cat->id), 'Categoria 2');
         }
     }
 
@@ -167,7 +167,7 @@ class TranslationsTableSeeder extends Seeder
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Utilizadores');
         }
 
-        $_item = $this->findMenuItem(__('voyager::seeders.menu_items.categories'));
+        $_item = $this->findMenuItem(__('voyager::seeders.menu_items.foodMenus'));
         if ($_item->exists) {
             $this->trans('pt', $this->arr($_tpl, $_item->id), 'Categorias');
         }

@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FoodMenuController;
 use App\Http\Controllers\Admin\FoodController;
+use App\Http\Controllers\Admin\FoodImageController;
+use App\Http\Controllers\general\FoodController as generalFoodController;
+use App\Http\Controllers\general\FoodMenuController as generalFoodMenuController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -45,3 +48,22 @@ Route::group(['prefix' => 'foods'], function () {
     Route::post('images/upload', [FoodImageController::class, 'upload'])->name('admin.foods.images.upload');
     Route::get('images/{id}/delete', [FoodImageController::class, 'delete'])->name('admin.foods.images.delete');
  });
+
+ Route::get('/food_menu/{id}', [generalFoodMenuController::class, 'show'])->name('foodmenu.show');
+ Route::get('/food/{id}', [generalFoodController::class, 'show'])->name('food.show');
+ 
+ Route::post('/food/add/cart', [generalFoodMenuController::class, 'addToCart'])->name('food.add.cart');
+ Route::get('/cart', 'Site\CartController@getCart')->name('checkout.cart');
+ Route::get('/cart/item/{id}/remove', 'Site\CartController@removeItem')->name('checkout.cart.remove');
+ Route::get('/cart/clear', 'Site\CartController@clearCart')->name('checkout.cart.clear');
+ 
+ 
+ Route::view('/', 'general.pages.homepage');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/checkout', 'Site\CheckoutController@getCheckout')->name('checkout.index');
+    Route::post('/checkout/order', 'Site\CheckoutController@placeOrder')->name('checkout.place.order');
+
+    Route::get('checkout/payment/complete', 'Site\CheckoutController@complete')->name('checkout.payment.complete');
+
+    Route::get('account/orders', 'Site\AccountController@getOrders')->name('account.orders');
+});

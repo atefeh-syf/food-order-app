@@ -12,11 +12,11 @@ class SettingsTableSeeder extends Seeder
      */
     public function run()
     {
-        $setting = $this->findSetting('site.title');
+        $setting = $this->findSetting('general.title');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.title'),
-                'value'        => __('voyager::seeders.settings.site.title'),
+                'display_name' => __('voyager::seeders.settings.general.title'),
+                'value'        => __('voyager::seeders.settings.general.title'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -24,11 +24,11 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
-        $setting = $this->findSetting('site.description');
+        $setting = $this->findSetting('general.description');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.description'),
-                'value'        => __('voyager::seeders.settings.site.description'),
+                'display_name' => __('voyager::seeders.settings.general.description'),
+                'value'        => __('voyager::seeders.settings.general.description'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -36,10 +36,10 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
-        $setting = $this->findSetting('site.logo');
+        $setting = $this->findSetting('general.logo');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.logo'),
+                'display_name' => __('voyager::seeders.settings.general.logo'),
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'image',
@@ -48,10 +48,10 @@ class SettingsTableSeeder extends Seeder
             ])->save();
         }
 
-        $setting = $this->findSetting('site.google_analytics_tracking_id');
+        $setting = $this->findSetting('general.google_analytics_tracking_id');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.google_analytics_tracking_id'),
+                'display_name' => __('voyager::seeders.settings.general.google_analytics_tracking_id'),
                 'value'        => '',
                 'details'      => '',
                 'type'         => 'text',

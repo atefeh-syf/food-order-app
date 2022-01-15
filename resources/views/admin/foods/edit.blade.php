@@ -45,7 +45,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
-                                            <label class="control-label" for="menus">Categories</label>
+                                            <label class="control-label" for="menus">foodMenus</label>
                                             <select name="menus[]" id="menus" class="form-control" multiple>
                                                 @foreach($menus as $menu)
                                                     @php $check = in_array($menu->id, $food->menus->pluck('id')->toArray()) ? 'selected' : ''@endphp
