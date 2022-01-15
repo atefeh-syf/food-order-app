@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\general;
-
+use Cart;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Contracts\FoodContract;

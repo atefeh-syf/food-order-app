@@ -28,7 +28,7 @@
                                 <div class="icon-wrap icon-xs bg2 round text-secondary"><i
                                         class="fa fa-shopping-cart"></i></div>
                                 <div class="text-wrap">
-                                    <small> </small>
+                                    <small>{{ $cartCount }}</small>
                                 </div>
                             </a>
                         </div>
@@ -70,5 +70,5 @@
             </div>
         </div>
     </section>
-    @include('general.partials.nav')
+    
 </header>
